@@ -1,0 +1,34 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.navbar {
+    background-color: #274067;
+    color: rgb(250,250,250);
+    padding: 0;
+    margin: 0;
+}
+.navbar-default .navbar-brand {
+    color: rgb(250,250,250);
+}
+.navbar-default .navbar-nav li a {
+    color: rgb(250,250,250);
+}
+.navbar-default .navbar-nav li a:hover {
+    color: rgb(250,250,250);
+}
+.navbar-nav > li > .dropdown-menu {
+    padding: 0;
+}
+.menuitem span {
+    width: 100%;
+    text-align: left;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #274067;
+    color: rgb(250,250,250);
+}
+.fa {
+    padding-left: 7px;
+    padding-right: 7px;
+}
