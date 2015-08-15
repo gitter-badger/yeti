@@ -1,0 +1,24 @@
+<md-dialog aria-label="Add New Style">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add New Stylesheet</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:500px;max-height:450px; ">
+        <div>
+            <form>
+                <md-input-container>
+                    <md-select placeholder="Type of CSS Sheet" ng-model="model.styleType">
+                        <md-option value="code">Embedded Style</md-option>
+                        <md-option value="link">External Link</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Stylesheet Name</label><input type="text" class="form-control" ng-model="model.styleName" id="styleName" placeholder="CSS Sheet Name">
+                </md-input-container>
+                <md-button class="md-raised md-primary" ng-click="addStyle()">Add CSS Sheet</md-button>
+            </form>
+        </div>
+    </md-dialog-content>
+</md-dialog>

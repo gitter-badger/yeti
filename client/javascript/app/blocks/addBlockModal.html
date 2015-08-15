@@ -1,0 +1,24 @@
+<md-dialog aria-label="Add New Block">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add New Block</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:500px;max-height:450px; ">
+        <div>
+            <form>
+                <md-input-container>
+                    <md-select placeholder="Type of Block" ng-model="model.blockType">
+                        <md-option value="content">Regular Content</md-option>
+                        <md-option value="blog">Blog Posts</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Block Name</label><input type="text" class="form-control" ng-model="model.blockName" id="blockName" placeholder="Block Name">
+                </md-input-container>
+                <md-button class="md-raised md-primary" ng-click="addBlock()">Add Block</md-button>
+            </form>
+        </div>
+    </md-dialog-content>
+</md-dialog>

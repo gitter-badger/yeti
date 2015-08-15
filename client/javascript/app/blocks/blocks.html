@@ -1,0 +1,78 @@
+<div id="control-panel" class="snap-drawer snap-drawer-left">
+    <div id="control-panel-content" layout="column">
+
+        <div flex="100" layout="row" class="control-panel-item">
+            <div flex="50">
+                <md-button class="md-raised md-warn control-panel-button" ng-click="deleteBlock()">Delete</md-button>
+            </div>
+            <div flex="50">
+                <md-button class="md-raised md-primary control-panel-button" ng-click="saveBlock()">Save</md-button>
+            </div>
+        </div>
+
+        <div flex="100" class="control-panel-item">
+            <div flex="100">
+                <h4 class="control-panel-item-heading">Select a Block</h4>
+            </div>
+            <div flex="100" layout="row">
+                <div flex="65">
+                    <md-input-container>
+                        <md-select class="md-accent md-hue-1" placeholder="Select a block to edit" ng-model="model.currentBlockId" ng-change="gotoBlock()">
+                            <md-option ng-repeat="block in model.blocks" value="{{block._id}}">{{block.title | limitTo: 15 }}{{block.title.length > 15 ? '&hellip;' : ''}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex="35">
+                    <md-button class="md-primary md-raised add-button" ng-click="showConfirm($event)"><i class="fa fa-plus-square"></i>Create Block</md-button>
+                </div>
+            </div>
+        </div>
+
+        <!-- If blog post block -->
+        <div flex="100" class="control-panel-item" ng-if="model.isBlog">
+            <div flex="100">
+                <h4 class="control-panel-item-heading">Select a Block</h4>
+            </div>
+            <div flex="100" layout="row">
+                <h4>Number of Posts to Display:</h4>
+            </div>
+            <div flex="100">
+                <md-slider flex min="5" max="50" step="5" ng-model="model.blockSettings.numToDisplay" aria-label="numToDisplay" id="blue-slider" class>
+                </md-slider>
+                <div flex="10" layout layout-align="center center">
+                    <input flex type="number" ng-model="model.blockSettings.numToDisplay" aria-label="numToDisplay" aria-controls="blue-slider">
+                </div>
+            </div>
+            <div flex="100">
+                <md-switch ng-model="model.blockSettings.displayTitles" aria-label="displayTitles">
+                    <h4>Display Titles</h4>
+                </md-switch>
+                <fieldset class="standard" flex="">
+                    <legend>Select Categories to Display in Block:</legend>
+                    <div layout="row" layout-wrap="">
+                        <div flex="50" ng-repeat="category in model.postCategories">
+                            <md-checkbox ng-checked="exists(category, model.blockSettings.displayedCategories)" ng-click="toggle(category, model.blockSettings.displayedCategories)">
+                                {{ category }}
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div layout="column" id="page-content-wrapper" class="snap-content" data-snap-ignore="true" ng-click="closeMenu()">
+    <div flex="100">
+        <md-button id="toggle-menu-button" aria-label="Menu" ng-click="toggleMenu()" ng-mouseenter="startHover()" ng-mouseleave="endHover()"><i class="fa fa-bars fa-2x"></i></md-button>
+
+        <!-- If regular block -->
+        <div id="editor" ng-show="!model.isBlog"></div>
+
+        <!-- If blog post block -->
+        <div ng-if="model.isBlog">
+            <h4>Please use settings menu to the left for blog posts block.</h4>
+        </div>
+    </div>
+</div>

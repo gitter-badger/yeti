@@ -1,0 +1,78 @@
+<div id="control-panel" class="snap-drawer snap-drawer-left">
+    <div id="control-panel-content" layout="column">
+
+        <div flex="100" layout="row" class="control-panel-item">
+            <div flex="50">
+                <md-button class="md-raised md-warn control-panel-button" ng-click="deleteView()">Delete</md-button>
+            </div>
+            <div flex="50">
+                <md-button class="md-raised md-primary control-panel-button" ng-click="saveView()" ng-disabled="!model.currentView.defaultView && viewForm.viewRouteInput.$invalid">Save</md-button>
+            </div>
+        </div>
+
+        <div flex="100" class="control-panel-item">
+            <div flex="100">
+                <h4 class="control-panel-item-heading">Select a view</h4>
+            </div>
+            <div flex="100" layout="row">
+                <div flex="65">
+                    <md-input-container>
+                        <md-select class="md-accent md-hue-1" placeholder="Select a view to edit" ng-model="model.currentViewId" ng-change="gotoView()">
+                            <md-option ng-repeat="view in model.views" value="{{view.id}}">{{view.title | limitTo: 15 }}{{view.title.length > 15 ? '&hellip;' : ''}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex="35">
+                    <md-button class="md-primary md-raised add-button" ng-click="showConfirm($event)"><i class="fa fa-plus-square"></i>Create View</md-button>
+                </div>
+            </div>
+        </div>
+
+        <div flex="100" class="control-panel-item">
+            <div flex="100">
+                <h4 class="control-panel-item-heading">Add a block</h4>
+            </div>
+            <div flex="100" layout="row">
+                <div flex="65">
+                    <md-input-container>
+                        <md-select class="md-accent md-hue-1" placeholder="Select a block to add" ng-model="model.selectedBlock">
+                            <md-option ng-repeat="block in model.blocks" value="{{block.id}}">{{block.title}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex="35">
+                    <md-button class="md-primary md-raised add-button" ng-click="addBlock()" ng-disabled="!model.selectedBlock"><i class="fa fa-plus-square"></i>Add Block</md-button>
+                </div>
+            </div>
+        </div>
+
+        <div flex="100" class="control-panel-item">
+            <div flex="100">
+                <h4 class="control-panel-item-heading">View settings</h4>
+            </div>
+            <div flex="100" layout="row">
+                <div flex="40">
+                    <md-switch class="md-primary" md-no-ink aria-label="Default View" ng-model="model.currentView.defaultView">
+                        Default View?
+                    </md-switch>
+                </div>
+                <div flex="60">
+                    <md-input-container ng-if="!model.currentView.defaultView">
+                        <label>Route</label><input name="viewRouteInput" required type="text" ng-minlength="2" ng-pattern="/^(?!\/api|\/admin).*$/" ng-model="model.currentView.route">
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div layout="column" id="page-content-wrapper" class="snap-content" data-snap-ignore="true" ng-click="closeMenu()">
+    <div flex="100">
+        <md-button id="toggle-menu-button" aria-label="Menu" ng-click="toggleMenu()" ng-mouseenter="startHover()" ng-mouseleave="endHover()"><i class="fa fa-bars fa-2x"></i></md-button>
+        <div class="editorContainer">
+            <div id="editorToolbar"></div>
+            <h4>Drag and drop blocks to re-arrange:</h4>
+            <div id="viewEditor" ng-bind-html="model.editorContent" class="allBlocks"><div class="blocks"></div></div>
+        </div>
+    </div>
+</div>

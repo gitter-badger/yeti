@@ -1,0 +1,15 @@
+<md-dialog aria-label="Add New Post">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add New Post</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:300px;max-height:250px; ">
+        <div>
+            <form class="form-horizontal" ng-submit="addPost()">
+                <input type="text" class="form-control" ng-model="model.postName" id="postName" placeholder="Post Name">
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-plus-square"></i> Add Post</button>
+            </form>
+        </div>
+    </md-dialog-content>
+</md-dialog>

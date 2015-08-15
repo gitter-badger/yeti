@@ -1,0 +1,24 @@
+<md-dialog aria-label="Add New Block">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add New Script</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:500px;max-height:450px; ">
+        <div>
+            <form>
+                <md-input-container>
+                    <md-select placeholder="Type of Script" ng-model="model.scriptType">
+                        <md-option value="code">Embedded Code</md-option>
+                        <md-option value="link">External Link</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Script Name</label><input type="text" class="form-control" ng-model="model.scriptName" id="scriptName" placeholder="Script Name">
+                </md-input-container>
+                <md-button class="md-raised md-primary" ng-click="addScript()">Add Script</md-button>
+            </form>
+        </div>
+    </md-dialog-content>
+</md-dialog>

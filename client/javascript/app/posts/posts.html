@@ -1,0 +1,46 @@
+<div id="control-panel" class="snap-drawer snap-drawer-left">
+    <div id="control-panel-content" layout="column">
+
+        <div flex="100" layout="row" class="control-panel-item">
+            <div flex="50">
+                <md-button class="md-raised md-warn control-panel-button" ng-click="deletePost()">Delete</md-button>
+            </div>
+            <div flex="50">
+                <md-button class="md-raised md-primary control-panel-button" ng-click="savePost()">Save</md-button>
+            </div>
+        </div>
+
+        <div flex="100" class="control-panel-item">
+            <div flex="100">
+                <h4 class="control-panel-item-heading">Select a Post</h4>
+            </div>
+            <div flex="100" layout="row">
+                <div flex="65">
+                    <md-input-container>
+                        <md-select class="md-accent md-hue-1" placeholder="Select a post to edit" ng-model="model.currentPostId" ng-change="gotoPost()">
+                            <md-option ng-repeat="post in model.posts" value="{{post._id}}">{{post.title | limitTo: 15 }}{{post.title.length > 15 ? '&hellip;' : ''}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex="35">
+                    <md-button class="md-primary md-raised add-button" ng-click="showConfirm($event)"><i class="fa fa-plus-square"></i>Create Post</md-button>
+                </div>
+            </div>
+        </div>
+
+        <div flex="100" layout="row" class="control-panel-item">
+            <md-input-container>
+                <label class="md-accent md-hue-1">Category</label><input name="postCategory" required type="text" ng-minlength="2" ng-model="model.postCategory">
+            </md-input-container>
+        </div>
+
+    </div>
+</div>
+
+<div layout="column" id="page-content-wrapper" class="snap-content" data-snap-ignore="true" ng-click="closeMenu()">
+    <div flex="100">
+        <md-button id="toggle-menu-button" aria-label="Menu" ng-click="toggleMenu()" ng-mouseenter="startHover()" ng-mouseleave="endHover()"><i class="fa fa-bars fa-2x"></i></md-button>
+
+        <div id="editor"></div>
+    </div>
+</div>

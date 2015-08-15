@@ -1,0 +1,23 @@
+<md-dialog aria-label="Add New Block" ng-controller="userController">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add New User</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:500px;max-height:450px; ">
+        <div>
+            <form>
+                <md-input-container>
+                    <label>User Name</label><input type="text" class="form-control" ng-model="inputUsername" id="userName" placeholder="User Name" ng-required="true">
+                </md-input-container>
+                <md-input-container>
+                    <label>Email</label><input type="email" class="form-control" ng-model="inputEmail" id="email" placeholder="Email" ng-required="true">
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label><input type="password" class="form-control" ng-model="inputPassword" id="password" placeholder="Password" ng-required="true">
+                </md-input-container>
+                <md-button class="md-raised md-primary" ng-click="userSubmit()">Add User</md-button>
+            </form>
+        </div>
+    </md-dialog-content>
+</md-dialog>

@@ -1,0 +1,29 @@
+<div layout="column" id="page-content-wrapper">
+    <md-content flex="100" layout-padding id="page-content">
+        <md-button class="md-primary md-raised add-button" ng-click="showConfirm($event)"><i class="fa fa-plus-square"></i>Add User</md-button>
+        <div layout="column" layout-fill layout-align="top center">
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>UserID</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in userList">
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user._id}}</td>
+                        <td style="text-align: right;">
+                            <md-button class="md-icon-button md-primary md-mini" aria-label="Delete User" ng-click="deleteUser($event, user._id)"><md-icon><i class="fa fa-trash-o fa-2x"></i></md-icon></md-button>
+                            <md-button class="md-icon-button md-primary md-mini" aria-label="Delete User" ng-click="editUser($event, user._id)"><md-icon><i class="fa fa-pencil fa-2x"></i></md-icon></md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </md-content>
+</div>
+

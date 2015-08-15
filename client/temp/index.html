@@ -1,0 +1,572 @@
+<link rel="stylesheet" href="/css/bootstrap.css">
+<script src="//use.typekit.net/inz2urj.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+<script src="/javascript/libs/jquery-2.1.4.js"></script>
+<script>
+    $(document).ready(function(){
+        $('section[data-type="background"]').each(function(){
+            var $scroll = $(this);
+            $(window).scroll(function() {
+                var yPos = -($(window).scrollTop() / $scroll.data('speed'));
+                var coords = '50% '+ yPos + 'px';
+                var winBottom = window.innerHeight + document.body.scrollTop;
+
+                $scroll.css({ backgroundPosition: coords });
+
+                $('.hiddenItem').each(function() {
+                    var objBottom = getPos(this).y;
+                    if (winBottom > objBottom + 200) {
+                        $(this).animate({
+                            'opacity': '1'
+                        }, 1000);
+                    }
+                });
+
+                function getPos(el) {
+                    for (var lx=0, ly=0;
+                         el != null;
+                         lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+                    return {x: lx,y: ly};
+                }
+
+                if (winBottom > 20) {
+                    $('#arrow').css({ opacity: 0 });
+                } else {
+                    $('#arrow').css({ opacity: 100 });
+                }
+            });
+        });
+    });
+    document.createElement("section");
+</script>
+<style>
+    body {
+        overflow-x: hidden;
+        background-color: rgb(250,250,250);
+        font-family: "proxima-nova",sans-serif;
+    }
+    h1 {
+        font-family: "proxima-nova",sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 3em;
+    }
+    h2 {
+        font-family: "proxima-nova",sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.9em;
+    }
+    h3 {
+        font-family: "proxima-nova",sans-serif;
+        font-style: normal;
+        font-weight: 100;
+        font-size: 1.3em;
+    }
+    a {
+        color: rgb(250,250,250);
+    }
+    a:hover {
+        color: rgb(250,250,250);
+    }
+    a:visited {
+        color: rgb(250,250,250);
+    }
+    .btn{
+        width: 200px;
+        border-color: rgb(250,250,250);
+        background: transparent;
+        color: rgb(250,250,250);
+        /* CSS Transition */
+        -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+        -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+        -ms-transition: background .2s ease-in-out, border .2s ease-in-out;
+        -o-transition: background .2s ease-in-out, border .2s ease-in-out;
+        transition: background .2s ease-in-out, border .2s ease-in-out;
+    }
+    .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+        background-color: rgb(250,250,250);
+        color: #333;
+        border-color: rgb(250,250,250);
+    }
+    #mountains {
+        position: absolute;
+        top: 85%;
+        left: 0;
+        width: 100%;
+        height: 156px;
+        background: url('/server/images/mountains.svg');
+    }
+    #white_mountains {
+        position: absolute;
+        top: 190%;
+        left: 0;
+        width: 100%;
+        height: 156px;
+        background: url('/server/images/mountains_white.svg');
+    }
+    #header {
+        display: table;
+        width: 100%;
+        height: 100vh;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        background-color: #F8F8F8;
+    }
+    #about {
+        display: table;
+        width: 100%;
+        height: 100vh;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        background-color: #48AEE3;
+    }
+    #headerText {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: #48AEE3;
+    }
+    #headerText a {
+        color: #48AEE3;
+        text-decoration: none;
+    }
+    #aboutText {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: #F8F8F8;
+    }
+    #body1 {
+        background-color: #F8F8F8;
+        height: 100vh;
+        position: relative;
+        display: table;
+        color: #48AEE3;
+        padding-top: 10%;
+        padding-bottom: 10%;
+        width: 100%;
+        margin: 0;
+    }
+    #features {
+        padding-left: 25%;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+    }
+    #features .row {
+        padding: 25px;
+    }
+    #body2 {
+        display: table;
+        background-color: #48AEE3;
+        width: 100%;
+        height: 100vh;
+        padding: 2%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #demo {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        color: #F8F8F8;
+    }
+    #demo .feature {
+        -webkit-border-radius: 35px;
+        -moz-border-radius: 35px;
+        border-radius: 35px;
+    }
+    #demo .demo-item {
+        padding: 50px;
+    }
+    #tests .row {
+        padding-left: 25%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+    #body3 {
+        display: table;
+        background-color: #F8F8F8;
+        width: 100%;
+        padding: 2%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #footerText {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        color: #48AEE3;
+    }
+    #footerText a {
+        color: #48AEE3;
+        text-decoration: none;
+    }
+    #headerText .fa {
+        color: rgb(250,250,250);
+    }
+    hr {
+        width: 30%;
+    }
+    .hiddenItem {
+        opacity: 0;
+    }
+
+    /* Arrow */
+    @-moz-keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            -moz-transform: translateY(0);
+            transform: translateY(0);
+        }
+        40% {
+            -moz-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        60% {
+            -moz-transform: translateY(-15px);
+            transform: translateY(-15px);
+        }
+    }
+    @-webkit-keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+        40% {
+            -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        60% {
+            -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+        }
+    }
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+        40% {
+            -moz-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+        60% {
+            -moz-transform: translateY(-15px);
+            -ms-transform: translateY(-15px);
+            -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+        }
+    }
+    #arrow {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        margin-left: -20px;
+        width: 32px;
+        height: 21px;
+        background-image: url('/server/images/down_arrow.png');
+        background-size: contain;
+    }
+    .bounce {
+        -moz-animation: bounce 2s infinite;
+        -webkit-animation: bounce 2s infinite;
+        animation: bounce 2s infinite;
+    }
+
+    /* Clouds */
+    #clouds {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .cloud {
+        width: 200px;
+        height: 60px;
+        background: #48AEE3;
+
+        border-radius: 200px;
+        -moz-border-radius: 200px;
+        -webkit-border-radius: 200px;
+
+        position: relative;
+    }
+
+    .cloud:before, .cloud:after {
+        content: '';
+        background: #48AEE3;
+        width: 100px;
+        height: 80px;
+        position: absolute;
+        top: -15px;
+        left: 10px;
+
+        border-radius: 100px;
+        -moz-border-radius: 100px;
+        -webkit-border-radius: 100px;
+
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+    }
+
+    .cloud:after {
+        width: 120px;
+        height: 120px;
+        top: -55px;
+        left: auto;
+        right: 15px;
+    }
+
+    /*Time to animate*/
+    .x1 {
+        -webkit-animation: moveclouds 35s linear infinite;
+        -moz-animation: moveclouds 35s linear infinite;
+        -o-animation: moveclouds 35s linear infinite;
+    }
+
+    /*variable speed, opacity, and position of clouds for realistic effect*/
+    .x2 {
+        left: 200px;
+
+        -webkit-transform: scale(0.6);
+        -moz-transform: scale(0.6);
+        transform: scale(0.6);
+        opacity: 0.6; /*opacity proportional to the size*/
+
+        /*Speed will also be proportional to the size and opacity*/
+        /*More the speed. Less the time in 's' = seconds*/
+        -webkit-animation: moveclouds 45s linear infinite;
+        -moz-animation: moveclouds 45s linear infinite;
+        -o-animation: moveclouds 45s linear infinite;
+    }
+
+    .x3 {
+        left: -250px;
+        top: -200px;
+
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        transform: scale(0.8);
+        opacity: 0.8; /*opacity proportional to the size*/
+
+        -webkit-animation: moveclouds 40s linear infinite;
+        -moz-animation: moveclouds 40s linear infinite;
+        -o-animation: moveclouds 40s linear infinite;
+    }
+
+    .x4 {
+        left: 470px;
+        top: -250px;
+
+        -webkit-transform: scale(0.75);
+        -moz-transform: scale(0.75);
+        transform: scale(0.75);
+        opacity: 0.75; /*opacity proportional to the size*/
+
+        -webkit-animation: moveclouds 38s linear infinite;
+        -moz-animation: moveclouds 38s linear infinite;
+        -o-animation: moveclouds 38s linear infinite;
+    }
+
+    .x5 {
+        left: -150px;
+        top: -150px;
+
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        transform: scale(0.8);
+        opacity: 0.8; /*opacity proportional to the size*/
+
+        -webkit-animation: moveclouds 40s linear infinite;
+        -moz-animation: moveclouds 40s linear infinite;
+        -o-animation: moveclouds 40s linear infinite;
+    }
+
+    @-webkit-keyframes moveclouds {
+        0% {margin-left: 2000px;}
+        100% {margin-left: -1000px;}
+    }
+    @-moz-keyframes moveclouds {
+        0% {margin-left: 2000px;}
+        100% {margin-left: -1000px;}
+    }
+    @-o-keyframes moveclouds {
+        0% {margin-left: 2000px;}
+        100% {margin-left: -1000px;}
+    }
+
+    /* Corner Ribbon */
+    .corner-ribbon{
+        width: 200px;
+        position: absolute;
+        top: 25px;
+        left: -50px;
+        text-align: center;
+        line-height: 50px;
+        letter-spacing: 1px;
+        color: #f0f0f0;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        opacity: 1;
+        font-size: 1.3em;
+        z-index: 1;
+    }
+    .corner-ribbon:hover {
+        opacity: 1;
+    }
+    .corner-ribbon a {
+        text-decoration: none;
+    }
+    .corner-ribbon.sticky{
+        position: fixed;
+    }
+    .corner-ribbon.top-left{
+        top: 25px;
+        left: -50px;
+        right: auto;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        z-index: 1;
+    }
+    .corner-ribbon.shadow{
+        box-shadow: 0 0 3px rgba(0,0,0,.3);
+    }
+    .corner-ribbon.blue{background: #48AEE3;}
+
+    @media (max-width: 1150px) {
+        #clouds {
+            display: none;
+        }
+        .cloud {
+            display: none;
+        }
+        #mountains {
+            display: none;
+        }
+        #white_mountains {
+            display: none;
+        }
+        #demo .feature {
+            display: none;
+        }
+    }
+    @media (min-height: 1150px) {
+        #mountains {
+            top: 90%;
+        }
+        #white_mountains {
+            top: 195%;
+        }
+    }
+
+</style>
+
+<div class="corner-ribbon top-left sticky blue shadow"><a href="http://yetijs.com" target="_blank">Built With <img src="/server/images/favicon.png" width="32" height="32"></a></div>
+<div id="clouds">
+    <div class="cloud x1">&nbsp;</div>
+    <div class="cloud x2">&nbsp;</div>
+    <div class="cloud x3">&nbsp;</div>
+    <div class="cloud x4">&nbsp;</div>
+    <div class="cloud x5">&nbsp;</div>
+</div>
+<div id="header">
+    <div id="headerText"><a href="#about"> <img src="../images/yeti.svg" alt="" width="373px" height="365px" /> <br /></a>
+        <h1>Meet Yeti</h1>
+    </div>
+    <div id="mountains">&nbsp;</div>
+</div>
+
+<section id="about">
+    <div id="aboutText">
+        <h2>Yeti is a NodeJS based content management system<br /> ...focused on simplicity and speed.</h2>
+        <hr>
+        <h2>Beta coming soon, keep checking back...</h2>
+        <br /><br /> <a class="btn btn-primary btn-lg" href="mailto:me@thomrichardson.net?Subject=YetiJS%20Question" target="_top">Contact Us</a><br /><br /><br />
+    </div>
+    <div id="white_mountains">&nbsp;</div>
+</section>
+<section id="body1" data-speed="3.5" data-type="background">
+    <div id="features">
+        <div class="row hiddenItem">
+            <div class="col-lg-4">
+                <h1><i class="fa fa-fighter-jet">&nbsp;</i> Speed</h1>
+                <h3>We chose node.js for its incredible speed based on the Google V8 Javascript engine. You simply will not find this type of speed with PHP.</h3>
+            </div>
+            <div class="col-lg-4">
+                <h1><i class="fa fa-refresh">&nbsp;</i> Versatility</h1>
+                <h3>Yeti is open-source and completely transparent. If you know Javascript and node.js, feel free to modify it for your own needs.</h3>
+            </div>
+        </div>
+        <div class="row hiddenItem">
+            <div class="col-lg-4">
+                <h1><i class="fa fa-lock">&nbsp;</i> Security</h1>
+                <h3>Yeti uses a proven and very secure user system based on bcrypt, a key derivation function that was introduced in 1999 and has since been un-crackable. Your security is important, why sacrifice?</h3>
+            </div>
+            <div class="col-lg-4">
+                <h1><i class="fa fa-child">&nbsp;</i> Simplicity</h1>
+                <h3>While Yeti does not have thousands of plugins, it does have simplicity. The core code is very simple and follows a Restful API pattern that is extremely easy to understand and very scalable.</h3>
+            </div>
+        </div>
+        <div class="row hiddenItem">
+            <div class="col-lg-4">
+                <h1><i class="fa fa-leaf">&nbsp;</i> Mongo</h1>
+                <h3>Yeti uses the extremely fast NoSQL database MongoDB. This document-based database offers unparalleled speed, built in clustering, and the flexibility to host all of your content anywhere in the world.</h3>
+            </div>
+            <div class="col-lg-4">
+                <h1><i class="fa fa-shield">&nbsp;</i> AngularJS</h1>
+                <h3>Yeti uses Angular for routing and it's very robust structure. This allows for things like partial views and two-way data-binding for extremely powerful data processing and displaying.</h3>
+            </div>
+        </div>
+        <div class="row hiddenItem">
+            <div class="col-lg-4">
+                <h1><i class="fa fa-train">&nbsp;</i> Express</h1>
+                <h3>Yeti uses ExpressJS for server-side routing and API end-points. Express is proven, stable, fast, and easy to use.</h3>
+            </div>
+            <div class="col-lg-4">
+                <h1><i class="fa fa-cogs">&nbsp;</i> Custom</h1>
+                <h3>Edit CSS and Javascript right inside of the full-featured administration panel. No need to wade through and keep track of all of these files. You can even edit them on the go from your mobile device!</h3>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="body2">
+    <div id="demo">
+        <div class="demo-item">
+            <h1>Highly Optimized Code - Blazing Speed</h1>
+            <h3>Benchmarking courtesy of <a href="http://gtmetrix.com" target="_blank">GTmetrix</a></h3>
+            <hr>
+            <img class="feature" src="/server/images/demo-gtmetrix.jpg" width="950" height="329">
+        </div>
+        <div class="demo-item">
+            <h1>Drag and Drop Customizable Views</h1>
+            <hr>
+            <img class="feature" src="/server/images/demo-views.jpg" width="997" height="329">
+        </div>
+        <div class="demo-item">
+            <h1>Easy-to-use WYSIWYG Editing (optional pure HTML available)</h1>
+            <hr>
+            <img class="feature" src="/server/images/demo-editor.jpg" width="997" height="329">
+        </div>
+        <div class="demo-item">
+            <h1>Intuitive and simple features, designed to get you up and running quickly!</h1>
+            <hr>
+            <img class="feature" src="/server/images/demo-menu.jpg" width="672" height="45">
+        </div>
+    </div>
+</div>
+<div id="body3">
+    <div id="footerText">
+        <h3>A project by <a href="http://thomrichardson.net" target="_blank">Thom Richardson</a><br><br>
+        This site built entirely with <a href="http://yetijs.com" target="_blank">Yeti!</a></h3>
+    </div>
+</div>

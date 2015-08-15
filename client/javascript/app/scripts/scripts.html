@@ -1,0 +1,56 @@
+<div id="control-panel" class="snap-drawer snap-drawer-left">
+    <div id="control-panel-content" layout="column">
+
+        <div flex="100" layout="row" class="control-panel-item">
+            <div flex="50">
+                <md-button class="md-raised md-warn control-panel-button" ng-click="deleteScript()">Delete</md-button>
+            </div>
+            <div flex="50">
+                <md-button class="md-raised md-primary control-panel-button" ng-click="saveScript()">Save</md-button>
+            </div>
+        </div>
+
+        <div flex="100" class="control-panel-item">
+            <div flex="100">
+                <h4 class="control-panel-item-heading">Select a Script</h4>
+            </div>
+            <div flex="100" layout="row">
+                <div flex="65">
+                    <md-input-container>
+                        <md-select class="md-accent md-hue-1" placeholder="Select a script to edit" ng-model="model.currentScriptId" ng-change="gotoScript()">
+                            <md-option ng-repeat="script in model.scripts" value="{{script._id}}">{{script.title | limitTo: 15 }}{{script.title.length > 15 ? '&hellip;' : ''}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex="35">
+                    <md-button class="md-primary md-raised add-button" ng-click="showConfirm($event)"><i class="fa fa-plus-square"></i>Create Script</md-button>
+                </div>
+            </div>
+        </div>
+
+        <div flex="100" layout="row" class="control-panel-item">
+            <md-switch class="md-primary" md-no-ink aria-label="Enabled" ng-model="model.currentScript.enabled">
+                <span ng-if="model.currentScript.enabled">Enabled</span>
+                <span ng-if="!model.currentScript.enabled">Disabled</span>
+            </md-switch>
+        </div>
+
+    </div>
+</div>
+
+<div layout="column" id="page-content-wrapper" class="snap-content" data-snap-ignore="true" ng-click="closeMenu()">
+    <div flex="100">
+        <md-button id="toggle-menu-button" aria-label="Menu" ng-click="toggleMenu()" ng-mouseenter="startHover()" ng-mouseleave="endHover()"><i class="fa fa-bars fa-2x"></i></md-button>
+
+        <span ng-if="model.currentScript.type === 'code'">Embedded Script</span>
+        <span ng-if="model.currentScript.type === 'link'">External Script Link</span>
+
+        <md-content layout-padding">
+        <div ng-if="model.currentScript.type === 'code'" ui-ace="{ onLoad: aceLoaded }" ng-model="model.currentScript.content"></div>
+        <md-input-container flex ng-if="model.currentScript.type === 'link'">
+            <label>URL</label>
+            <input ng-model="model.currentScript.content">
+        </md-input-container>
+        </md-content>
+    </div>
+</div>

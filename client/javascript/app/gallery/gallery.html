@@ -1,0 +1,44 @@
+<div id="control-panel" class="snap-drawer snap-drawer-left">
+    <div id="control-panel-content" layout="column">
+
+        <div flex="100" layout="row" class="control-panel-item">
+            <form ng-submit="submitImage()">
+                <fieldset>
+                    <md-list>
+                        <md-list-item class="md-2-line">
+                            <div class="md-toolbar-tools">
+                                <h2 class="md-flex">Upload a File</h2>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-2-line">
+                            <input type="file" class="form-control" id="inputFile" onchange="fileSelected=true">
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item class="md-2-line">
+                            <md-button class="md-raised md-primary" type="submit">Upload Image</md-button>
+                        </md-list-item>
+                    </md-list>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div layout="column" id="page-content-wrapper" class="snap-content" data-snap-ignore="true" ng-click="closeMenu()">
+    <div flex="100">
+        <md-button id="toggle-menu-button" aria-label="Menu" ng-click="toggleMenu()" ng-mouseenter="startHover()" ng-mouseleave="endHover()"><i class="fa fa-bars fa-2x"></i></md-button>
+
+        <md-content layout-padding>
+            <div masonry column-width="30%">
+                <div class="masonry-brick" ng-repeat="mediaItem in mediaList">
+                    <a href="/images/{{mediaItem}}" target="_blank">
+                        <img src="{{displayImage(mediaItem)}}">
+                        <h3>{{mediaItem}}</h3> <a href="" ng-click="showConfirm($event, mediaItem)">Delete</a>
+                    </a>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>
+

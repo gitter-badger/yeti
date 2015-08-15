@@ -1,0 +1,327 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+#content {
+    padding-top: 0;
+}
+#yetiIcon {
+    margin-top: 5px;
+    z-index: 10;
+}
+#adminSidebar {
+    position: fixed;
+    z-index: 9;
+    margin-top: 0;
+    background-color: rgb(21,101,192);
+    height: 100vh;
+    box-shadow: 5px 0 30px -5px #333;
+}
+#adminSidebarContent {
+    background-color: transparent;
+}
+#adminHeader {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    padding-top: 0;
+    padding-bottom: 2%;
+    background-color: #F8F8F8;
+}
+#adminHeaderText {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #48AEE3;
+}
+#adminHeaderText h3 {
+    font-family: "proxima-nova",sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 1.3em;
+}
+#progressBar {
+    margin-top: -10px;
+}
+#progressShade {
+    background-color: rgba(0,0,0,0.6);
+    width: 100vw;
+    height: 100vh;
+    display: table;
+}
+#progressShade h3 {
+    display: table-cell;
+    color: #F8F8F8;
+    text-align: center;
+    vertical-align: middle;
+}
+#userTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+#userTable th, td {
+    padding: 0.7em 0.5em 0.7em 0.5em;
+    text-align: left;
+}
+#userTable thead {
+    background-color: rgb(21,101,192);
+    color: #F8F8F8;
+}
+#userTable tbody tr:nth-child(odd) {
+    background: #eeeeee;
+}
+#userTable tr:nth-child(even):hover {
+    background: #eeeeee;
+}
+#userTable tr:nth-child(odd):hover {
+    background: transparent;
+}
+md-divider[md-inset] {
+    margin: 0 0 25px 0;
+}
+.navbar {
+    background-color: #48AEE3;
+    padding: 0;
+    margin: 0;
+}
+.navbar-default .navbar-brand {
+    color: #F8F8F8);
+}
+.navbar-default .navbar-nav li a {
+    color: #F8F8F8;
+}
+.navbar-default .navbar-nav li a:hover {
+    color: #257096;
+}
+.navbar-nav > li > .dropdown-menu {
+    padding: 0;
+}
+.fa {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.sidebarButtons {
+    width: 100%;
+    height: 50px;
+    margin: 0;
+}
+#controls {
+    position: fixed;
+    z-index: 8;
+    left: 304px;
+    top: 0;
+    padding-left: 25px;
+    padding-top: 20px;
+    padding-bottom: 0;
+    height: 106px;
+    box-shadow: 0 5px 30px -5px #333;
+    color: #F8F8F8;
+}
+#controls label {
+    color: #F8F8F8;
+}
+#controls input {
+    color: #F8F8F8;
+}
+#controls md-input-container {
+    color: #F8F8F8;
+}
+.md-select-label :first-child {
+    color: #F8F8F8;
+}
+#controlButtons {
+    padding-right: 305px;
+}
+#blockSettings {
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 650px;
+}
+.editorContainer {
+    width: 100%;
+}
+#selectedBlock {
+    width: 250px;
+    display: inline;
+}
+.blockControlBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#editor {
+    width: 100%;
+    height: 100%;
+}
+#editorFrame {
+    width: 100%;
+}
+.fr-wrapper {
+    width: 100%;
+    height: 100%;
+}
+#viewEditor {
+    zoom: 0.4;
+}
+fieldset {
+    border: 0;
+}
+.masonry-brick {
+    background-color: rgba(200, 200, 200, 0.4);
+    border: 1px dashed rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px 20px 0 20px;
+    margin: 10px;
+}
+.masonry-brick a {
+    color: #333;
+    text-decoration: none;
+}
+.ace_editor {
+    width: 100vw;
+    height: 100vh;
+}
+/* Draggable editor */
+.blockContent {
+    position: relative;
+    border: 10px solid #2a3b6c;
+    border-radius: 30px;
+    background-color: rgba(72, 174, 227, 0.15);
+    cursor: move;
+    margin: 5px;
+    min-height: 100px;
+}
+.blockContent:hover {
+    background-color: rgba(72, 174, 227, 0.5);
+}
+
+.sidebar-title {
+    height: 106px;
+    color: #257096;
+    text-align: center;
+}
+#cssEditor {
+    width: 90vw;
+    height: 78vh;
+}
+.md-button.md-warn.md-fab {
+    background-color: rgba(21, 101, 192, 1);
+}
+.md-button.md-warn.md-fab:not([disabled]):hover {
+    background-color: #246186;
+}
+#toolbar {
+    z-index: 3;
+    position: fixed;
+    padding-left: 100px;
+    box-shadow: 5px 0 30px -5px #333;
+}
+#yeti-menu-container {
+    padding-left: 40px;
+    height: 56px;
+    background-color: rgba(21, 101, 192, 1);
+    border-bottom-right-radius: 28px;
+    border-top-right-radius: 28px;
+    position: absolute;
+    top: 6px;
+    left: 30px;
+    z-index: -500;
+    box-shadow: 5px 0 30px -5px #333;
+}
+#menu-icon {
+    position: fixed;
+    z-index: 10;
+    top: 5px;
+    left: 5px;
+}
+.yeti-menu {
+    width: 90px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0;
+}
+.md-fab-action-item a {
+    color: rgba(255, 255, 255, 0.8);
+}
+.md-fab-action-item a:hover {
+    color: rgba(255, 255, 255, 0.3);
+}
+.yeti-menu-icon {
+    text-align: center;
+    vertical-align: middle;
+}
+md-fab-speed-dial md-fab-trigger {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+}
+.list-container {
+    width: 100%;
+    height: 200px;
+}
+.list-item {
+    width: 100%;
+    border-bottom: 1px #333333 dashed;
+}
+.add-button {
+    margin: 0 0 5px 5px;
+    width: 145px;
+    height: 40px;
+    min-height: 0;
+}
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    margin-top: 70px;
+    padding: 15px;
+    box-shadow: -12px 2px 20px -15px #333;
+}
+#page-content-wrapper:focus {
+    outline: none;
+}
+.snap-content {
+    background-color: #F8F8F8;
+}
+#control-panel {
+    width: 500px;
+    margin-top: 70px;
+    background-color: rgb(236, 236, 236);
+    color: #333;
+}
+#toggle-menu-button {
+    width: 60px;
+    border-bottom-right-radius: 70px;
+    margin-left: -20px;
+    margin-top: -10px;
+    min-width: 0;
+    padding: 5px 15px 5px 0;
+    color: rgb(21, 101, 192);
+}
+#control-panel-content {
+    padding: 0;
+    text-align: center;
+}
+.control-panel-item {
+    padding: 35px 15px 35px 15px;
+    box-shadow: inset 0 -10px 6px -10px #333;
+}
+.control-panel-item-heading {
+    margin-top: -30px;
+    border-bottom: 1px solid #E2E2E2;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+.control-panel-button {
+    min-width: 0;
+    width: 230px;
+    height: 45px
+}
+.add-dialog {
+    max-width: 450px;
+    max-height: 250px;
+    width: 400px;
+    height: 150px;
+    padding: 25px;
+}

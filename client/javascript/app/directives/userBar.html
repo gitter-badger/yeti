@@ -1,0 +1,42 @@
+<md-fab-speed-dial id="menu-icon" md-open="isOpen" md-direction="{{selectedDirection}}"
+                   ng-class="selectedMode"
+                   ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false" ng-if="verified">
+    <md-fab-trigger>
+        <md-button aria-label="menu" class="md-fab md-warn">
+            <img src="/images/yeti_icon_only.svg" id="yetiIcon">
+        </md-button>
+    </md-fab-trigger>
+    <md-fab-actions id="yeti-menu-container" ng-show="isOpen">
+        <a href="/admin/#/users"><i class="yeti-menu fa fa-users" ng-style="{ opacity: current === 'users' ? 0.6 : 1 }"> Users</i></a>
+        <a href="/admin/#/views"><i class="yeti-menu fa fa-binoculars" ng-style="{ opacity: current === 'views' ? 0.6 : 1 }"> Views</i></a>
+        <a href="/admin/#/blocks"><i class="yeti-menu fa fa-cubes" ng-style="{ opacity: current === 'blocks' ? 0.6 : 1 }"> Blocks</i></a>
+        <a href="/admin/#/posts"><i class="yeti-menu fa fa-lightbulb-o" ng-style="{ opacity: current === 'posts' ? 0.6 : 1 }"> Posts</i></a>
+        <a href="/admin/#/styles"><i class="yeti-menu fa fa-css3" ng-style="{ opacity: current === 'styles' ? 0.6 : 1 }"> Styles</i></a>
+        <a href="/admin/#/scripts"><i class="yeti-menu fa fa-code" ng-style="{ opacity: current === 'scripts' ? 0.6 : 1 }"> Scripts</i></a>
+        <a href=""><i class="yeti-menu fa fa-cogs" ng-style="{ opacity: current === 'settings' ? 0.6 : 1 }"> Settings</i></a>
+        <a href="/admin/#/gallery"><i class="yeti-menu fa fa-picture-o" ng-style="{ opacity: current === 'gallery' ? 0.6 : 1 }"> Gallery</i></a>
+    </md-fab-actions>
+</md-fab-speed-dial>
+<div layout="column">
+    <md-content>
+        <md-toolbar id="toolbar" ng-if="verified">
+            <span><h4>{{current}}</h4></span>
+            <!--<md-menu md-offset="0 50">-->
+                <!--<md-button md-no-ink class="md-accent md-hue-1" ng-click="$mdOpenMenu($event)">-->
+                    <!--<i class="fa fa-user"></i>{{user.name}}<span class="caret"></span>-->
+                <!--</md-button>-->
+                <!--<md-menu-content width="4">-->
+                    <!--<md-menu-item>-->
+                        <!--<md-button md-no-ink class="md-primary" ng-click="logout()">-->
+                            <!--<i class="fa fa-sign-out"></i>Logout</span></li>-->
+                        <!--</md-button>-->
+                    <!--</md-menu-item>-->
+                <!--</md-menu-content>-->
+            <!--</md-menu>-->
+            <!--<div id="progressBar" ng-show="isLoading">-->
+                <!--<md-progress-linear md-mode="indeterminate"></md-progress-linear>-->
+                <!--<div id="progressShade"><h3>Please wait, loading...</h3></div>-->
+            <!--</div>-->
+        </md-toolbar>
+    </md-content>
+</div>

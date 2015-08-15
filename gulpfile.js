@@ -1,25 +1,22 @@
 var gulp = require('gulp');
-var mocha = require('gulp-mocha');
-var istanbul = require('gulp-istanbul');
+var concat = require('gulp-concat');
+var minify = require('gulp-minify');
+var uglify = require('gulp-uglify');
 
-gulp.task('test', function(cb) {
-    return gulp.src([
-        'lib/**/*.js',
-        'routes/**/*.js',
-        'model/**/*.js',
-        'models/**/*.js'
-    ])
-        .pipe(istanbul({includeUntested: true}))
-        .pipe(istanbul.hookRequire())
-        .on('finish', function() {
-            gulp.src(['test/*.js'])
-                .pipe(mocha())
-                .pipe(istanbul.writeReports())
-                .pipe(istanbul.enforceThresholds({
-                    thresholds: {
-                        global: 90
-                    }
-                }))
-                .on('end', cb)
-        })
+gulp.task('concat', function() {
+    return gulp.src('./client/javascript/app/**/*.js')
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('./client/javascript/dist'));
+});
+
+gulp.task('minify', function() {
+    gulp.src('./client/javascript/dist/all.js')
+        .pipe(minify())
+        .pipe(gulp.dest('./client/javascript/dist'))
+});
+
+gulp.task('uglify', function() {
+    return gulp.src('./client/javascript/dist/all.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('./client/javascript/dist/'));
 });

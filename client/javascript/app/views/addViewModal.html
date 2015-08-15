@@ -1,0 +1,19 @@
+<md-dialog aria-label="Add New View">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add New View</h2>
+        </div>
+    </md-toolbar>
+    <md-dialog-content class="add-dialog">
+        <form class="form-horizontal" ng-submit="addView()">
+            <div flex="100">
+                    <md-input-container>
+                        <label>View Name</label><input name="viewName" required type="text" ng-minlength="2" ng-model="model.viewName">
+                    </md-input-container>
+            </div>
+            <div flex="100">
+                <md-button type="submit" class="md-primary md-raised add-button"><i class="fa fa-plus-square"></i> Add View</md-button>
+            </div>
+        </form>
+    </md-dialog-content>
+</md-dialog>
