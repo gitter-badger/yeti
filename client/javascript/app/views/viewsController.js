@@ -10,7 +10,6 @@ app.controller('viewsController', [
     '$sce',
     '$q',
     '$mdToast',
-    '$timeout',
     'blockService',
     function(
         $rootScope,
@@ -24,20 +23,9 @@ app.controller('viewsController', [
         $sce,
         $q,
         $mdToast,
-        $timeout,
         blockService
     ) {
         $scope.model = {};
-
-        var snapper = new Snap({
-            element: document.getElementById('page-content-wrapper'),
-            disable: 'right',
-            maxPosition: 500,
-            transitionSpeed: 1,
-            easing: 'ease'
-        });
-
-        var hoverTimer;
 
         $scope.model.selectedBlock = '';
 
@@ -171,32 +159,6 @@ app.controller('viewsController', [
         $scope.gotoView = function(viewId) {
             buildView(viewId || $scope.model.currentViewId);
             $scope.model.currentView = viewService.getViewById(viewId || $scope.model.currentViewId);
-        };
-
-        $scope.startHover = function() {
-            hoverTimer = $timeout(function() {
-                $scope.toggleMenu()
-            }, 500);
-        };
-
-        $scope.endHover = function() {
-            $timeout.cancel(hoverTimer);
-        };
-
-        $scope.toggleMenu = function() {
-            if (snapper.state().state === 'left') {
-                snapper.close();
-            } else {
-                snapper.open('left');
-            }
-            $timeout.cancel(hoverTimer);
-        };
-
-        $scope.closeMenu = function() {
-            if (snapper.state().state === 'left') {
-                snapper.close();
-            }
-            $timeout.cancel(hoverTimer);
         };
 
         function insertBlocks(view) {

@@ -7,7 +7,6 @@ app.controller('stylesController', [
     'loaderService',
     'styleService',
     '$mdDialog',
-    '$timeout',
     '$mdToast',
     function(
         $rootScope,
@@ -18,7 +17,6 @@ app.controller('stylesController', [
         loaderService,
         styleService,
         $mdDialog,
-        $timeout,
         $mdToast
     ) {
         $scope.model = {};
@@ -28,16 +26,6 @@ app.controller('stylesController', [
             allowedContent: true,
             extraPlugins: 'save'
         };
-
-        var hoverTimer;
-
-        var snapper = new Snap({
-            element: document.getElementById('page-content-wrapper'),
-            disable: 'right',
-            maxPosition: 500,
-            transitionSpeed: 1,
-            easing: 'ease'
-        });
 
         function initLoad(styleId) {
             loaderService.show();
@@ -152,31 +140,5 @@ app.controller('stylesController', [
                 targetEvent: ev,
                 clickOutsideToClose: true
             });
-        };
-
-        $scope.startHover = function() {
-            hoverTimer = $timeout(function() {
-                $scope.toggleMenu()
-            }, 500);
-        };
-
-        $scope.endHover = function() {
-            $timeout.cancel(hoverTimer);
-        };
-
-        $scope.toggleMenu = function() {
-            if (snapper.state().state === 'left') {
-                snapper.close();
-            } else {
-                snapper.open('left');
-            }
-            $timeout.cancel(hoverTimer);
-        };
-
-        $scope.closeMenu = function() {
-            if (snapper.state().state === 'left') {
-                snapper.close();
-            }
-            $timeout.cancel(hoverTimer);
         };
 }]);

@@ -8,7 +8,6 @@ app.controller('scriptsController', [
     'scriptService',
     '$mdDialog',
     '$mdToast',
-    '$timeout',
     function(
         $rootScope,
         $scope,
@@ -18,8 +17,7 @@ app.controller('scriptsController', [
         loaderService,
         scriptService,
         $mdDialog,
-        $mdToast,
-        $timeout
+        $mdToast
     ) {
         $scope.model = {};
         $scope.model.scripts = [];
@@ -28,16 +26,6 @@ app.controller('scriptsController', [
             allowedContent: true,
             extraPlugins: 'save'
         };
-
-        var hoverTimer;
-
-        var snapper = new Snap({
-            element: document.getElementById('page-content-wrapper'),
-            disable: 'right',
-            maxPosition: 500,
-            transitionSpeed: 1,
-            easing: 'ease'
-        });
 
         function initLoad(scriptId) {
             loaderService.show();
@@ -152,31 +140,5 @@ app.controller('scriptsController', [
                 targetEvent: ev,
                 clickOutsideToClose: true
             });
-        };
-
-        $scope.startHover = function() {
-            hoverTimer = $timeout(function() {
-                $scope.toggleMenu()
-            }, 500);
-        };
-
-        $scope.endHover = function() {
-            $timeout.cancel(hoverTimer);
-        };
-
-        $scope.toggleMenu = function() {
-            if (snapper.state().state === 'left') {
-                snapper.close();
-            } else {
-                snapper.open('left');
-            }
-            $timeout.cancel(hoverTimer);
-        };
-
-        $scope.closeMenu = function() {
-            if (snapper.state().state === 'left') {
-                snapper.close();
-            }
-            $timeout.cancel(hoverTimer);
         };
 }]);

@@ -7,8 +7,8 @@ app.controller('postsController', [
     '$cookies',
     'loaderService',
     'postService',
-    '$timeout',
     '$mdToast',
+    '$timeout',
     function(
         $rootScope,
         $scope,
@@ -18,22 +18,12 @@ app.controller('postsController', [
         $cookies,
         loaderService,
         postService,
-        $timeout,
-        $mdToast
+        $mdToast,
+        $timeout
     ) {
         var editor = $('div#editor');
         $scope.model = {};
         $scope.model.posts = [];
-
-        var hoverTimer;
-
-        var snapper = new Snap({
-            element: document.getElementById('page-content-wrapper'),
-            disable: 'right',
-            maxPosition: 500,
-            transitionSpeed: 1,
-            easing: 'ease'
-        });
 
         $scope.$on('$stateChangeSuccess', function(event, toState) {
             if (toState.name === 'postsDefault' || toState.name === 'posts') {
@@ -164,31 +154,4 @@ app.controller('postsController', [
                 clickOutsideToClose: true
             });
         };
-
-        $scope.startHover = function() {
-            hoverTimer = $timeout(function() {
-                $scope.toggleMenu()
-            }, 500);
-        };
-
-        $scope.endHover = function() {
-            $timeout.cancel(hoverTimer);
-        };
-
-        $scope.toggleMenu = function() {
-            if (snapper.state().state === 'left') {
-                snapper.close();
-            } else {
-                snapper.open('left');
-            }
-            $timeout.cancel(hoverTimer);
-        };
-
-        $scope.closeMenu = function() {
-            if (snapper.state().state === 'left') {
-                snapper.close();
-            }
-            $timeout.cancel(hoverTimer);
-        };
-
-    }]);
+}]);
