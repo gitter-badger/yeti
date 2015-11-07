@@ -3,10 +3,10 @@
 
         <div flex="100" layout="row" class="control-panel-item">
             <div flex="50">
-                <md-button class="md-raised md-warn control-panel-button" ng-click="deleteView()">Delete</md-button>
+                <md-button class="control-panel-button red-button" ng-click="deleteView()"><i class="fa fa-trash-o"></i>Delete</md-button>
             </div>
             <div flex="50">
-                <md-button class="md-raised md-primary control-panel-button" ng-click="saveView()" ng-disabled="!model.currentView.defaultView && viewForm.viewRouteInput.$invalid">Save</md-button>
+                <md-button class="control-panel-button" ng-click="saveView()" ng-disabled="!model.currentView.defaultView && viewForm.viewRouteInput.$invalid"><i class="fa fa-floppy-o"></i>Save</md-button>
             </div>
         </div>
 
@@ -23,7 +23,7 @@
                     </md-input-container>
                 </div>
                 <div flex="35">
-                    <md-button class="md-primary md-raised add-button" ng-click="showConfirm($event)"><i class="fa fa-plus-square"></i>Create View</md-button>
+                    <md-button class="add-button" ng-click="showConfirm($event)"><i class="fa fa-plus-square"></i>Create View</md-button>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     </md-input-container>
                 </div>
                 <div flex="35">
-                    <md-button class="md-primary md-raised add-button" ng-click="addBlock()" ng-disabled="!model.selectedBlock"><i class="fa fa-plus-square"></i>Add Block</md-button>
+                    <md-button class="add-button" ng-click="addBlock()" ng-disabled="!model.selectedBlock"><i class="fa fa-plus-square"></i>Add Block</md-button>
                 </div>
             </div>
         </div>

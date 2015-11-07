@@ -267,9 +267,11 @@ md-fab-speed-dial md-fab-trigger {
 }
 .add-button {
     margin: 0 0 5px 5px;
-    width: 145px;
+    width: 155px;
     height: 40px;
-    min-height: 0;
+    min-width: 0;
+    border: 2px rgb(21, 101, 192) solid;
+    color: rgb(21, 101, 192);
 }
 #page-content-wrapper {
     width: 100%;
@@ -317,7 +319,16 @@ md-fab-speed-dial md-fab-trigger {
 .control-panel-button {
     min-width: 0;
     width: 230px;
-    height: 45px
+    height: 45px;
+    border: 2px rgb(21, 101, 192) solid;
+    color: rgb(21, 101, 192);
+}
+.red-button {
+    min-width: 0;
+    width: 230px;
+    height: 45px;
+    border: 2px red solid;
+    color: red;
 }
 .add-dialog {
     max-width: 450px;

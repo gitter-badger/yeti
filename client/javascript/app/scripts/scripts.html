@@ -3,10 +3,10 @@
 
         <div flex="100" layout="row" class="control-panel-item">
             <div flex="50">
-                <md-button class="md-raised md-warn control-panel-button" ng-click="deleteScript()">Delete</md-button>
+                <md-button class="control-panel-button red-button" ng-click="deleteScript()"><i class="fa fa-trash-o"></i>Delete</md-button>
             </div>
             <div flex="50">
-                <md-button class="md-raised md-primary control-panel-button" ng-click="saveScript()">Save</md-button>
+                <md-button class="control-panel-button" ng-click="saveScript()"><i class="fa fa-floppy-o"></i>Save</md-button>
             </div>
         </div>
 
@@ -23,7 +23,7 @@
                     </md-input-container>
                 </div>
                 <div flex="35">
-                    <md-button class="md-primary md-raised add-button" ng-click="showConfirm($event)"><i class="fa fa-plus-square"></i>Create Script</md-button>
+                    <md-button class="add-button" ng-click="showConfirm($event)"><i class="fa fa-plus-square"></i>Create Script</md-button>
                 </div>
             </div>
         </div>
