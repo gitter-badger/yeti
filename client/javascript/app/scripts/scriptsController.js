@@ -79,7 +79,7 @@ app.controller('scriptsController', [
                     $mdToast.show(
                         $mdToast.simple()
                             .content('Script Saved!')
-                            .position('top right')
+                            .position('bottom right')
                             .hideDelay(3000)
                     );
                 }

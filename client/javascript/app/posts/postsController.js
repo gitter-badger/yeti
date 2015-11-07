@@ -96,7 +96,7 @@ app.controller('postsController', [
                     $mdToast.show(
                         $mdToast.simple()
                             .content('Post Saved!')
-                            .position('top right')
+                            .position('bottom right')
                             .hideDelay(3000)
                     );
                 }

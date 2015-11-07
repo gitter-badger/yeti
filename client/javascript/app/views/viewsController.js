@@ -252,7 +252,7 @@ app.controller('viewsController', [
                         $mdToast.show(
                             $mdToast.simple()
                                 .content('View Saved!')
-                                .position('top right')
+                                .position('bottom right')
                                 .hideDelay(3000)
                         );
                     });

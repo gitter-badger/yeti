@@ -215,6 +215,7 @@ fieldset {
 #toolbar {
     z-index: 3;
     position: fixed;
+    height: 72px;
     padding-left: 100px;
     box-shadow: 5px 0 30px -5px #333;
 }
@@ -233,7 +234,7 @@ fieldset {
 #menu-icon {
     position: fixed;
     z-index: 10;
-    top: 5px;
+    top: 0;
     left: 5px;
 }
 .yeti-menu {
@@ -334,4 +335,12 @@ md-fab-speed-dial md-fab-trigger {
     height: 50px;
     width: 50px;
     padding: 5px;
+}
+.userBar-text {
+    position: absolute;
+    right: 0;
+    margin-right: 25px;
+    font-weight: normal;
+    font-variant: small-caps;
+    font-family: sans-serif;
 }

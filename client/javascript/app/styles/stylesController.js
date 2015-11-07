@@ -79,7 +79,7 @@ app.controller('stylesController', [
                     $mdToast.show(
                         $mdToast.simple()
                             .content('Stylesheet Saved!')
-                            .position('top right')
+                            .position('bottom right')
                             .hideDelay(3000)
                     );
                 }

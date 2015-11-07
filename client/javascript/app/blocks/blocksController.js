@@ -62,7 +62,7 @@ app.controller('blocksController', [
                     $mdToast.show(
                         $mdToast.simple()
                             .content('Block Saved!')
-                            .position('top right')
+                            .position('bottom right')
                             .hideDelay(3000)
                     );
                 }

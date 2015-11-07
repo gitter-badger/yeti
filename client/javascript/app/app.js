@@ -120,6 +120,6 @@ app.config([
     ) {
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState) {
         $state.previous = fromState;
-        $rootScope.current = toState.name;
+        $rootScope.current = toState.name.charAt(0).toUpperCase() + toState.name.slice(1);
     });
 }]);
