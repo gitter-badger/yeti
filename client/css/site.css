@@ -325,3 +325,13 @@ md-fab-speed-dial md-fab-trigger {
     height: 150px;
     padding: 25px;
 }
+.save-icon {
+    position: absolute;
+    right: 0;
+    margin-right: 25px;
+    min-width: 0;
+    min-height: 0;
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+}

@@ -78,7 +78,7 @@ app.controller('scriptsController', [
                 if (result === 204) {
                     $mdToast.show(
                         $mdToast.simple()
-                            .content('Scriptsheet Saved!')
+                            .content('Script Saved!')
                             .position('top right')
                             .hideDelay(3000)
                     );
