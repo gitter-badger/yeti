@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
             var linkContent = '';
             _.each(result, function(style) {
                 if (style.enabled) {
-                    var code = style.revisions[style.revisions.length - 1].body.content;
+                    var code = style.content;
 
                     if (style.type === 'code') {
                         styleContent += code;
@@ -43,7 +43,7 @@ router.get('/', function(req, res, next) {
             var linkContent = '';
             _.each(result, function (script) {
                 if (script.enabled) {
-                    var code = script.revisions[script.revisions.length - 1].body.content;
+                    var code = script.content;
 
                     if (script.type === 'code') {
                         codeContent += utils.obfuscateJs(code);
