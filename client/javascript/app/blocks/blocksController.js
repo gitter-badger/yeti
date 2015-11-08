@@ -170,4 +170,10 @@ app.controller('blocksController', [
                 froalaLabel[froalaLabel.length-1].style.visibility='hidden';
             }, 350);
         }
-}]);
+
+        $scope.$on('saveKey', function(pressed) {
+            if (pressed) {
+                $scope.saveBlock();
+            }
+        });
+    }]);

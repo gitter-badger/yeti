@@ -161,6 +161,10 @@ app.controller('userController', [
         });
     };
 
+        $scope.saveKeyPressed = function() {
+            $scope.$broadcast('saveKey', true);
+        };
+
     function getUsers() {
         return $http.get('/api/users').then(function(result) {
             return result;

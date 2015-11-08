@@ -146,9 +146,20 @@ app.controller('viewsController', [
             });
         };
 
-        $scope.addBlock = function() {
-            postView(getModifiedView() + '{{-' + $scope.model.selectedBlock + '}}');
-            buildView();
+        $scope.addBlock = function(ev) {
+            if (~$scope.model.currentView.content.indexOf($scope.model.selectedBlock)) {
+                $mdDialog.show(
+                    $mdDialog.alert()
+                        .clickOutsideToClose(true)
+                        .title('Block Already Exists')
+                        .content('You can not add this block again, it already exists in the view.')
+                        .ok('Ok')
+                        .targetEvent(ev)
+                );
+            } else {
+                postView(getModifiedView() + '{{-' + $scope.model.selectedBlock + '}}');
+                buildView();
+            }
         };
 
         $scope.deleteBlock = function(viewContent) {
@@ -227,4 +238,10 @@ app.controller('viewsController', [
                 throw new Error(err);
             });
         }
+
+        $scope.$on('saveKey', function(pressed) {
+            if (pressed) {
+                $scope.saveView();
+            }
+        });
 }]);

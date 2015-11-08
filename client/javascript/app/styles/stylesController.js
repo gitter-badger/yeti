@@ -141,4 +141,10 @@ app.controller('stylesController', [
                 clickOutsideToClose: true
             });
         };
+
+        $scope.$on('saveKey', function(pressed) {
+            if (pressed) {
+                $scope.saveStyle();
+            }
+        });
 }]);

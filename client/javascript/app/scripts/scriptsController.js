@@ -141,4 +141,10 @@ app.controller('scriptsController', [
                 clickOutsideToClose: true
             });
         };
+
+        $scope.$on('saveKey', function(pressed) {
+            if (pressed) {
+                $scope.saveScript();
+            }
+        });
 }]);

@@ -167,3 +167,11 @@ function deleteBlock(div) {
 function editBlock(blockId) {
     angular.element($('#viewEditor')).scope().editBlock(blockId);
 }
+
+$(document).on('keydown', function(e) {
+    if (e.metaKey && e.which === 83) {
+        e.preventDefault();
+        angular.element($('#mainBody')).scope().saveKeyPressed();
+        return false;
+    }
+});

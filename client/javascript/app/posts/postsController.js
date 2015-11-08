@@ -154,4 +154,10 @@ app.controller('postsController', [
                 clickOutsideToClose: true
             });
         };
+
+        $scope.$on('saveKey', function(pressed) {
+            if (pressed) {
+                $scope.savePost();
+            }
+        });
 }]);
