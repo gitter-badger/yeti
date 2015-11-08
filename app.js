@@ -49,7 +49,6 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'client')));
 app.use(favicon(path.join(__dirname,'client','images','favicon.ico')));
-app.use('/', routes);
 app.use('/admin', admin);
 app.use('/api/users', users);
 app.use('/api/views', views);
@@ -59,22 +58,7 @@ app.use('/api/settings', settings);
 app.use('/api/media', media);
 app.use('/api/styles', styles);
 app.use('/api/scripts', scripts);
-
-// All custom defined routes by the user
-app.get('/*', function(req, res) {
-    View.getRoutes().then(function(result) {
-        var reqRoute = _.find(result, { 'route': req.url });
-        if (reqRoute) {
-            utils.buildPage(reqRoute._id).then(function(result){
-                res.render('index', result);
-            });
-        } else {
-            res.render('index', {
-                bodyContent: '404 Route Not Found.'
-            });
-        }
-    });
-});
+app.use('/', routes);
 
 //app.locals.pretty = true;
 

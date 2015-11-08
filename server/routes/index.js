@@ -20,4 +20,20 @@ router.get('/', function(req, res, next) {
     });
 });
 
+// All custom defined routes by the user
+router.get('/*', function(req, res) {
+    View.getRoutes().then(function(result) {
+        var reqRoute = _.find(result, { 'route': req.url });
+        if (reqRoute) {
+            utils.buildPage(reqRoute._id).then(function(result){
+                res.render('index', result);
+            });
+        } else {
+            res.render('index', {
+                bodyContent: '404 Route Not Found.'
+            });
+        }
+    });
+});
+
 module.exports = router;
