@@ -27,7 +27,7 @@ app.controller('blocksController', [
 
         $scope.$on('$stateChangeSuccess', function(event, toState) {
             if (toState.name === 'blocksDefault' || toState.name === 'blocks') {
-                initLoad();
+                initLoad($stateParams.blockId || null);
             }
         });
 
@@ -129,20 +129,19 @@ app.controller('blocksController', [
             });
         };
 
-        function initLoad() {
+        function initLoad(blockId) {
             loaderService.show();
 
-            blockService.getBlocks(true).then(function(result) {
+            blockService.getBlocks(true).then(function (result) {
                 $scope.model.blocks = result;
-                blockService.setSelectedBlockId(result[0]._id);
+                blockService.setSelectedBlockId(blockId || result[0]._id);
                 $scope.model.currentBlockId = blockService.getSelectedBlockId();
 
                 $http.get('/api/posts/categories').then(function (result) {
                     $scope.model.postCategories = result.data;
-                    buildBlock();
+                    buildBlock(blockId || null);
                     loaderService.hide();
                 });
-
             });
         }
 

@@ -164,3 +164,6 @@ function deleteBlock(div) {
     });
     angular.element($('#viewEditor')).scope().deleteBlock(viewContent);
 }
+function editBlock(blockId) {
+    angular.element($('#viewEditor')).scope().editBlock(blockId);
+}

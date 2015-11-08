@@ -161,6 +161,10 @@ app.controller('viewsController', [
             $scope.model.currentView = viewService.getViewById(viewId || $scope.model.currentViewId);
         };
 
+        $scope.editBlock = function(blockId) {
+            $state.go('blocks', { blockId: blockId });
+        };
+
         function insertBlocks(view) {
             var deferred = $q.defer();
             var modifiedView = '';
@@ -178,7 +182,7 @@ app.controller('viewsController', [
                     'onDragOver="dragOver(this, event)"' +
                     'onDragLeave="dragLeave(this, event)">' + blockContent.content +
                     '<div class="blockControlBox">' +
-                    '<a href="/admin/#/blocks/' + blockContent._id + '"><i class="btn fa fa-pencil fa-4x""></i></a>' +
+                    '<i class="btn fa fa-pencil fa-4x"" onclick="editBlock(\'' + blockContent._id + '\')"></i>' +
                     '<i class="btn fa fa-trash-o fa-4x" onclick="deleteBlock(\'' + blockContent._id +'\')"></i>' +
                     '</div>' +
                     '</div>';
