@@ -43,8 +43,9 @@
         <md-button id="toggle-menu-button" aria-label="Menu" ng-click="toggleMenu()" ng-mouseenter="startHover()" ng-mouseleave="endHover()"><i class="fa fa-bars fa-2x"></i></md-button>
         <md-button class="md-primary save-icon" aria-label="Save" ng-click="saveScript()"><i class="fa fa-floppy-o fa-2x"></i></md-button>
 
-        <span ng-if="model.currentScript.type === 'code'">Embedded Script</span>
-        <span ng-if="model.currentScript.type === 'link'">External Script Link</span>
+        {{model.currentScript.title}}
+        <span ng-if="model.currentScript.type === 'code'">(Embedded Script)</span>
+        <span ng-if="model.currentScript.type === 'link'">(External Script Link)</span>
 
         <md-content layout-padding">
         <div ng-if="model.currentScript.type === 'code'" ui-ace="{ onLoad: aceLoaded }" ng-model="model.currentScript.content"></div>

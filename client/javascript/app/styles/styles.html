@@ -43,8 +43,9 @@
         <md-button id="toggle-menu-button" aria-label="Menu" ng-click="toggleMenu()" ng-mouseenter="startHover()" ng-mouseleave="endHover()"><i class="fa fa-bars fa-2x"></i></md-button>
         <md-button class="md-primary save-icon" aria-label="Save" ng-click="saveStyle()"><i class="fa fa-floppy-o fa-2x"></i></md-button>
 
-        <span ng-if="model.currentStyle.type === 'code'">Embedded Stylesheet</span>
-        <span ng-if="model.currentStyle.type === 'link'">External Stylesheet Link</span>
+        {{model.currentStyle.title}}
+        <span ng-if="model.currentStyle.type === 'code'">(Embedded Stylesheet)</span>
+        <span ng-if="model.currentStyle.type === 'link'">(External Stylesheet Link)</span>
 
         <md-content layout-padding">
         <div ng-if="model.currentStyle.type === 'code'" ui-ace="{ onLoad: aceLoaded }" ng-model="model.currentStyle.content"></div>
