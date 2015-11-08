@@ -49,7 +49,6 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'client')));
 app.use(favicon(path.join(__dirname,'client','images','favicon.ico')));
-app.use('/', routes);
 app.use('/admin', admin);
 app.use('/api/users', users);
 app.use('/api/views', views);
@@ -59,6 +58,7 @@ app.use('/api/settings', settings);
 app.use('/api/media', media);
 app.use('/api/styles', styles);
 app.use('/api/scripts', scripts);
+app.use('/', routes);
 
 //app.locals.pretty = true;
 
