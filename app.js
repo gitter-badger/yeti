@@ -60,32 +60,6 @@ app.use('/api/media', media);
 app.use('/api/styles', styles);
 app.use('/api/scripts', scripts);
 
-app.get('/*', function(req, res) {
-    View.getRoutes().then(function(result) {
-        var reqRoute = _.find(result, { 'route': req.url });
-        if (reqRoute) {
-            Style.getAllStyles().then(function(result) {
-                var styleContent = '';
-                _.each(result, function(style) {
-                    styleContent += style.revisions[style.revisions.length-1].body.content
-                });
-                return styleContent;
-            }).then(function(styleContent) {
-                return View.getView(reqRoute._id).then(function(result) {
-                    res.render('index', {
-                        bodyContent: result.body.content,
-                        styleContent: styleContent.replace(/\n/g, '')
-                    });
-                });
-            });
-        } else {
-            res.render('index', {
-                bodyContent: '404 Route Not Found.'
-            });
-        }
-    });
-});
-
 //app.locals.pretty = true;
 
 app.use(function(req, res, next) {
