@@ -7,13 +7,13 @@ var jwt = require('jsonwebtoken');
 var fs = require('fs');
 var path = require('path');
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
     User.getAllUsers().then(function(result) {
         res.json(result);
     });
 });
 
-router.get('/:userName', function(req, res, next) {
+router.get('/:userName', function(req, res) {
     User.findOne({ username: req.body.username }).then(function(result) {
         res.sendStatus(result);
     });
@@ -32,7 +32,7 @@ router.post('/', function(req, res, next) {
     }).catch(next);
 });
 
-router.post('/verify', function(req, res, next) {
+router.post('/verify', function(req, res) {
     User.findOne({ username: req.body.username }).then(function(result) {
         if (User.verify(req.body.password, result.hash)) {
             var token = jwt.sign({
@@ -48,12 +48,10 @@ router.post('/verify', function(req, res, next) {
         } else {
             res.sendStatus(401);
         }
-    }).catch(function(err) {
-        res.sendStatus(401);
     });
 });
 
-router.post('/verifyToken', function(req, res, next) {
+router.post('/verifyToken', function(req, res) {
     jwt.verify(req.body.token, config.secretPhrase, function(err, decoded) {
         if (err) {
             res.sendStatus(401);
@@ -66,7 +64,7 @@ router.post('/verifyToken', function(req, res, next) {
     });
 });
 
-router.post('/changepass', function(req, res, next) {
+router.post('/changepass', function(req, res) {
     User.findOne({ username: req.body.username }).then(function(result) {
         if (User.verify(req.body.oldpassword, result.hash)) {
             User.update({ _id: result._id }, { hash: crypt.crypt(req.body.newpassword) }).then(function() {
@@ -75,17 +73,17 @@ router.post('/changepass', function(req, res, next) {
         } else {
             res.sendStatus(401);
         }
-    }).catch(function(err) {
+    }).catch(function() {
         res.sendStatus(401);
     });
 });
 
-router.post('/register/', function(req, res, next) {
+router.post('/register/', function(req, res) {
     User.create({
         username: req.body.username,
         email: req.body.email,
         hash: crypt.crypt(req.body.password)
-    }, function (err, doc) {
+    }, function (err) {
         if (err) {
             res.sendStatus(500);
         } else {
@@ -94,7 +92,7 @@ router.post('/register/', function(req, res, next) {
     });
 });
 
-router.post('/delete/:id', function(req, res, next) {
+router.post('/delete/:id', function(req, res) {
     User.find({
         _id: req.params.id
     }).remove().exec(function (err) {
