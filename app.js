@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-//require('newrelic');
 var util = require('util');
 var path = require('path');
 var express = require('express');
@@ -21,7 +20,6 @@ var media = require('./server/routes/media');
 var styles = require('./server/routes/style');
 var scripts = require('./server/routes/scripts');
 var db = require('./server/lib/db');
-var View = require('./server/models/View');
 var Style = require('./server/models/Style');
 var Scripts = require('./server/models/Scripts');
 
